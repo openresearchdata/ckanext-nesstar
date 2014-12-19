@@ -4,6 +4,7 @@ import datetime
 import logging
 from oaipmh.error import DatestampError
 
+
 log = logging.getLogger(__name__)
 
 orginal_datestamp_to_datetime = oaipmh.datestamp._datestamp_to_datetime
@@ -49,7 +50,12 @@ oaipmh.datestamp._datestamp_to_datetime = datestamp_to_datetime_for_wrong_input
 oaipmh.client.datestamp_to_datetime = datestamp_to_datetime_for_wrong_input
 
 
+class IgnoreDatasetError(Exception):
+    pass
 
+ignored_datasets = [
+    'http://compass-data.unil.ch:80/obj/fStudy/COMPASS-SE-122014',
+]
 
 
 class NesstarHarvester(OaipmhHarvester):
@@ -68,3 +74,8 @@ class NesstarHarvester(OaipmhHarvester):
             'title': 'NESSTAR',
             'description': 'Harvester for NESSTAR data sources'
         }
+
+    def _before_record_fetch(self, harvest_object):
+        if (harvest_object.guid in ignored_datasets):
+            log.debug('Ignore dataset %s' % harvest_object.guid)
+            raise IgnoreDatasetError('Ignore dataset %s' % harvest_object.guid)
