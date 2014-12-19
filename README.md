@@ -37,9 +37,9 @@ On the command line do this:
 
 - activate the python environment
 - `cd` to the ckan directory, e.g. `/usr/lib/ckan/default/src/ckan`
-- start the consumers:
+- start the consumers (NOTE: only run 1 gather and 1 fetch consumer per server):
 
-```
+```bash
 paster --plugin=ckanext-nesstar harvester gather_consumer &
 paster --plugin=ckanext-nesstar harvester fetch_consumer &
 ```
