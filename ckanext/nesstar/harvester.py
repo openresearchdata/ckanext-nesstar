@@ -57,6 +57,8 @@ class NesstarHarvester(OaipmhHarvester):
     NESSTAR Harvester
     '''
 
+    md_format = 'oai_ddi'
+
     def info(self):
         '''
         Return information about this harvester.
