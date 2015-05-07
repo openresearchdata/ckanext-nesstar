@@ -55,6 +55,9 @@ class IgnoreDatasetError(Exception):
 
 ignored_datasets = [
     'http://compass-data.unil.ch:80/obj/fStudy/COMPASS-SE-122014',
+    'http://fors-getdata.unil.ch:80/obj/fStudy/ch.sidos.ddi.599.10890',
+    'http://fors-getdata.unil.ch:80/obj/fStudy/ch.sidos.ddi.590.10890',
+    'http://fors-getdata.unil.ch:80/obj/fStudy/ch.sidos.ddi.600.10890',
 ]
 
 
