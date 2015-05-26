@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from ckanext.oaipmh.harvester import OaipmhHarvester
 import oaipmh
 import datetime
@@ -82,3 +83,6 @@ class NesstarHarvester(OaipmhHarvester):
         if (harvest_object.guid in ignored_datasets):
             log.debug('Ignore dataset %s' % harvest_object.guid)
             raise IgnoreDatasetError('Ignore dataset %s' % harvest_object.guid)
+
+    def _extract_license_id(self, content):
+        return 'FORS'
