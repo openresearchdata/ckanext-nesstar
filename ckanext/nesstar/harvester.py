@@ -86,3 +86,15 @@ class NesstarHarvester(OaipmhHarvester):
 
     def _extract_license_id(self, content):
         return 'FORS'
+
+    def _get_possible_resource(self, harvest_obj, content):
+        url = super(
+            NesstarHarvester,
+            self
+        )._get_possible_resource(harvest_obj, content)
+        if url:
+            url = (
+                'http://fors-nesstar.unil.ch/webview/index.jsp?object=%s'
+                % url
+            )
+        return url
