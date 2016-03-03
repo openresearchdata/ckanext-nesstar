@@ -94,7 +94,7 @@ class NesstarHarvester(OaipmhHarvester):
         )._get_possible_resource(harvest_obj, content)
         if url:
             url = (
-                'http://fors-nesstar.unil.ch/webview/index.jsp?object=%s'
+                'http://fors-getdata.unil.ch/webview/index.jsp?object=%s'
                 % url
             )
         return url
